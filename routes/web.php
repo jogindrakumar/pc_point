@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\AboutController;
 use App\Models\Admin;
+use App\Models\About;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,20 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//About Route
+
+Route::prefix('about')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[AboutController::class,'AboutView'])->name('all.about');
+Route::get('/add',[AboutController::class,'AboutAdd'])->name('add.about');
+Route::post('/store',[AboutController::class,'AboutStore'])->name('about.store');
+Route::get('/edit/{id}',[AboutController::class,'AboutEdit'])->name('about.edit');
+Route::post('/update/{id}',[AboutController::class,'AboutUpdate'])->name('about.update');
+Route::get('/delete/{id}',[AboutController::class,'AboutDelete'])->name('about.delete');
+
+
+ });
 
 
 //admin route
