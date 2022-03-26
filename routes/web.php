@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Models\Admin;
 use App\Models\About;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,18 @@ Route::post('/store',[AboutController::class,'AboutStore'])->name('about.store')
 Route::get('/edit/{id}',[AboutController::class,'AboutEdit'])->name('about.edit');
 Route::post('/update/{id}',[AboutController::class,'AboutUpdate'])->name('about.update');
 Route::get('/delete/{id}',[AboutController::class,'AboutDelete'])->name('about.delete');
+
+
+ });
+
+ // product Route
+ Route::prefix('product')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[ProductController::class,'ProductView'])->name('all.product');
+Route::get('/add',[ProductController::class,'ProductAdd'])->name('add.product');
+Route::post('/store',[ProductController::class,'ProductStore'])->name('product.store');
+Route::get('/edit/{id}',[ProductController::class,'ProductEdit'])->name('product.edit');
+Route::post('/update/{id}',[ProductController::class,'ProductUpdate'])->name('product.update');
+Route::get('/delete/{id}',[ProductController::class,'ProductDelete'])->name('product.delete');
 
 
  });

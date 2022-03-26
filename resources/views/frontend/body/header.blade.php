@@ -30,7 +30,7 @@
                                     <a class="nav-link" href="#contact">Contact us</a>
                                  </li>
                               </ul>
-                              <div class="sign_btn"><a href="#">Sign in</a></div>
+                              <div class="sign_btn"><a href="{{route('login')}}">Sign in</a></div>
                            </div>
                         </nav>
                      </div>
