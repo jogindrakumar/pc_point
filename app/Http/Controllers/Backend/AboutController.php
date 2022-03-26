@@ -72,17 +72,21 @@ class AboutController extends Controller
         if($request->file('img')){
 
             unlink($old_image);
+                // $image = $request->file('img');
+                // $name_gen = hexdec(uniqid());
+                // $img_ext = strtolower($image->getClientOriginalExtension());
+                // $img_name = $name_gen.'.'.$img_ext;
+                // $upload_location = 'upload/about/';
+                // $last_image = $upload_location.$img_name;
+                // $image->move($upload_location,$img_name);
                 $image = $request->file('img');
-                $name_gen = hexdec(uniqid());
-                $img_ext = strtolower($image->getClientOriginalExtension());
-                $img_name = $name_gen.'.'.$img_ext;
-                $upload_location = 'upload/about/';
-                $last_image = $upload_location.$img_name;
-                $image->move($upload_location,$img_name);
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->save('upload/about/'.$name_gen);
+                $save_url = 'upload/about/'.$name_gen;
 
 
                 About::FindOrFail($id)->update([
-                    'img'               => $last_image,
+                    'img'               => $save_url,
                 ]);
                 $notification = array(
                     'message' => 'about Updated Successfully',
@@ -93,13 +97,9 @@ class AboutController extends Controller
 
         }else{
                 About::FindOrFail($id)->update([
-                        'heading'              => $request->name,
-                        'post_one'          => $request->post_one,
-                        'post_two'          => $request->post_two,
+                        'heading'              => $request->heading,
                         'desp'              => $request->desp,
-                        'email'              => $request->email,
-                        'mobile'              => $request->mobile,
-                        'cv'                => $request->cv,
+                     
                        
                         
                     ]);
