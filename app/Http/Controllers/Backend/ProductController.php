@@ -27,15 +27,10 @@ class ProductController extends Controller
        
         ]);
 
-        $image = $request->file('img');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->save('upload/product/'.$name_gen);
-        $save_url = 'upload/product/'.$name_gen;
-
         Product::insert([
-        'heading'           => $request->heading,
+        'heading1'           => $request->heading1,
+        'heading2'           => $request->heading2,
         'desp'              => $request->desp,
-        'img'               => $save_url,
         ]);
          $notification = array(
             'message' => 'Product Inserted Successfully',
@@ -54,52 +49,21 @@ class ProductController extends Controller
 
     public function ProductUpdate(Request $request,$id){
 
-        
-        $old_image = $request->old_img;
-
-        if($request->file('img')){
-
-            unlink($old_image);
-               
-                $image = $request->file('img');
-                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->save('upload/product/'.$name_gen);
-                $save_url = 'upload/product/'.$name_gen;
-
-
-                Product::FindOrFail($id)->update([
-                    'img'               => $save_url,
-                ]);
-                $notification = array(
-                    'message' => 'Product Updated Successfully',
-                    'alert-type' => 'success'
-                        );
-                return redirect()->route('all.product')->with($notification);
-
-
-        }else{
-                Product::FindOrFail($id)->update([
-                        'heading'              => $request->heading,
-                        'desp'              => $request->desp,
-                     
-                       
-                        
-                    ]);
-                    $notification = array(
-                        'message' => 'Product Updated Successfully',
-                        'alert-type' => 'success'
-                            );
-                    return redirect()->route('all.product')->with($notification);
-
-        }
+    Product::FindOrFail($id)->update([
+            'heading1'           => $request->heading1,
+            'heading2'           => $request->heading2,
+            'desp'              => $request->desp,  
+            
+        ]);
+        $notification = array(
+            'message' => 'Product Updated Successfully',
+            'alert-type' => 'success'
+                );
+        return redirect()->route('all.product')->with($notification);
 
     }
 
     public function ProductDelete($id){
-        $product = Product::FindOrFail($id);
-        $img = $product->img;
-        unlink($img);
-
        Product::FindOrFail($id)->delete();
 
          $notification = array(
