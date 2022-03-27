@@ -55,16 +55,16 @@
         </li> 
          <li class="treeview">
           <a href="#">
-            
-            <i data-feather="bell"></i>
-            <span>What We Do</span>
+            <i data-feather="message-circle"></i>
+            <span>Hero</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="ti-more"></i>View What We Do</a></li>
-            
+            <li><a href="{{route('all.hero')}}"><i class="ti-more"></i>View</a></li>
+            <li><a href="{{route('add.hero')}}"><i class="ti-more"></i>Add</a></li>
+           
           </ul>
         </li> 
 

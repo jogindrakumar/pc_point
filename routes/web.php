@@ -5,9 +5,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\HeroController;
 use App\Models\Admin;
 use App\Models\About;
 use App\Models\Product;
+use App\Models\Hero;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,18 @@ Route::post('/store',[ProductController::class,'ProductStore'])->name('product.s
 Route::get('/edit/{id}',[ProductController::class,'ProductEdit'])->name('product.edit');
 Route::post('/update/{id}',[ProductController::class,'ProductUpdate'])->name('product.update');
 Route::get('/delete/{id}',[ProductController::class,'ProductDelete'])->name('product.delete');
+
+
+ });
+ 
+ // Hero Route
+ Route::prefix('hero')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[HeroController::class,'HeroView'])->name('all.hero');
+Route::get('/add',[HeroController::class,'HeroAdd'])->name('add.hero');
+Route::post('/store',[HeroController::class,'HeroStore'])->name('hero.store');
+Route::get('/edit/{id}',[HeroController::class,'HeroEdit'])->name('hero.edit');
+Route::post('/update/{id}',[HeroController::class,'HeroUpdate'])->name('hero.update');
+Route::get('/delete/{id}',[HeroController::class,'HeroDelete'])->name('hero.delete');
 
 
  });
