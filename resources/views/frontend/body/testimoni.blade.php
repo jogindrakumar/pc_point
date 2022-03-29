@@ -23,7 +23,7 @@
                                     <div  class="col-md-12">
                                        <div class="test_box">
                                           <h3>Michl ro</h3>
-                                          <p><i class="padd_rightt0"><img src="{{asset('frontend/images/te1.png')}}" alt="#"/></i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some <i class="padd_leftt0"><img src="{{asset('images/te2.png')}}" alt="#"/></i> <br>form, by injected humour, or randomised words which don't look even slightly believable</p>
+                                          <p><i class="padd_rightt0"><img src="{{asset('frontend/images/te1.png')}}" alt="#"/></i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some <i class="padd_leftt0"><img src="{{asset('frontend/images/te2.png')}}" alt="#"/></i> <br>form, by injected humour, or randomised words which don't look even slightly believable</p>
                                        </div>
                                     </div>
                                  </div>
@@ -37,7 +37,7 @@
                                     <div  class="col-md-12">
                                        <div class="test_box">
                                           <h3>Michl ro</h3>
-                                          <p><i class="padd_rightt0"><img src="{{asset('frontend/images/te1.png')}}" alt="#"/></i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some <i class="padd_leftt0"><img src="{{asset('images/te2.png')}}" alt="#"/></i> <br>form, by injected humour, or randomised words which don't look even slightly believable</p>
+                                          <p><i class="padd_rightt0"><img src="{{asset('frontend/images/te1.png')}}" alt="#"/></i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some <i class="padd_leftt0"><img src="{{asset('frontend/images/te2.png')}}" alt="#"/></i> <br>form, by injected humour, or randomised words which don't look even slightly believable</p>
                                        </div>
                                     </div>
                                  </div>
@@ -51,7 +51,7 @@
                                     <div  class="col-md-12">
                                        <div class="test_box">
                                           <h3>Michl ro</h3>
-                                          <p><i class="padd_rightt0"><img src="{{asset('frontend/images/te1.png')}}" alt="#"/></i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some <i class="padd_leftt0"><img src="{{asset('images/te2.png')}}" alt="#"/></i> <br>form, by injected humour, or randomised words which don't look even slightly believable</p>
+                                          <p><i class="padd_rightt0"><img src="{{asset('frontend/images/te1.png')}}" alt="#"/></i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some <i class="padd_leftt0"><img src="{{asset('frontend/images/te2.png')}}" alt="#"/></i> <br>form, by injected humour, or randomised words which don't look even slightly believable</p>
                                        </div>
                                     </div>
                                  </div>
