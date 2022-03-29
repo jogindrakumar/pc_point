@@ -21,22 +21,23 @@ public function HeroView(){
     public function HeroStore(Request $request){
         $request->validate([
             
-        'heading'         => 'required',
-        'desp'            => 'required',
+        'heading1'         => 'required',
+        'heading2'         => 'required',
+        'heading3'         => 'required',
+        'heading4'         => 'required',
         'img'             => 'required',
         ]);
 
-
-
-
         $image = $request->file('img');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->save('upload/hero/'.$name_gen);
+        Image::make($image)->resize(820,567)->save('upload/hero/'.$name_gen);
         $save_url = 'upload/hero/'.$name_gen;
 
         Hero::insert([
-        'heading'           => $request->heading,
-        'desp'              => $request->desp,
+        'heading1'           => $request->heading1,
+        'heading2'           => $request->heading2,
+        'heading3'           => $request->heading3,
+        'heading4'           => $request->heading4,
         'img'               => $save_url,
         ]);
          $notification = array(
@@ -62,16 +63,10 @@ public function HeroView(){
         if($request->file('img')){
 
             unlink($old_image);
-                // $image = $request->file('img');
-                // $name_gen = hexdec(uniqid());
-                // $img_ext = strtolower($image->getClientOriginalExtension());
-                // $img_name = $name_gen.'.'.$img_ext;
-                // $upload_location = 'upload/Hero/';
-                // $last_image = $upload_location.$img_name;
-                // $image->move($upload_location,$img_name);
+           
                 $image = $request->file('img');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->save('upload/hero/'.$name_gen);
+                Image::make($image)->resize(820,567)->save('upload/hero/'.$name_gen);
                 $save_url = 'upload/hero/'.$name_gen;
 
 
@@ -87,11 +82,11 @@ public function HeroView(){
 
         }else{
                 Hero::FindOrFail($id)->update([
-                        'heading'              => $request->heading,
-                        'desp'              => $request->desp,
-                     
-                       
-                        
+                       'heading1'           => $request->heading1,
+                        'heading2'           => $request->heading2,
+                        'heading3'           => $request->heading3,
+                        'heading4'           => $request->heading4,
+                    
                     ]);
                     $notification = array(
                         'message' => 'Hero Updated Successfully',

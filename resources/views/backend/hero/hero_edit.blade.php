@@ -7,19 +7,18 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Edit Product</h3>
+				  <h3 class="box-title">Edit Hero</h3>
 				</div>
         <div class="box-body">
             <div class="table-responsive">
-	<form action="{{route('product.update',$products->id)}}" method="POST" enctype="multipart/form-data">
+	<form action="{{route('hero.update',$heros->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
       
-    
-        <div class="form-group">
+     <div class="form-group">
         <h5>Heading1<span class="text-danger">*</span></h5>
         <div class="controls">
-        <input type="text" name="heading1" class="form-control"  value="{{$products->heading1}}"  > 
-		@error('heading')
+        <input type="text" name="heading1" class="form-control"  value="{{$heros->heading1}}"  > 
+		@error('heading1')
 		<span class="text-danger">{{$message}}</span>
 		@enderror
 		</div>
@@ -27,19 +26,40 @@
 	<div class="form-group">
         <h5>Heading2<span class="text-danger">*</span></h5>
         <div class="controls">
-        <input type="text" name="heading2" class="form-control"  value="{{$products->heading2}}"  > 
-		@error('heading')
+        <input type="text" name="heading2" class="form-control"  value="{{$heros->heading2}}"  > 
+		@error('heading2')
 		<span class="text-danger">{{$message}}</span>
 		@enderror
 		</div>
     </div>
-
-	
-    <div class="form-group">
-        <h5>Description<span class="text-danger">*</span></h5>
+		<div class="form-group">
+        <h5>Heading3<span class="text-danger">*</span></h5>
         <div class="controls">
-        <input type="text" name="desp"  class="form-control"  value="{{$products->desp}}"  > 
-	@error('desp')
+        <input type="text" name="heading3" class="form-control"  value="{{$heros->heading3}}"  > 
+		@error('heading3')
+		<span class="text-danger">{{$message}}</span>
+		@enderror
+		</div>
+    </div>
+		<div class="form-group">
+        <h5>Heading4<span class="text-danger">*</span></h5>
+        <div class="controls">
+        <input type="text" name="heading4" class="form-control"  value="{{$heros->heading4}}"  > 
+		@error('heading4')
+		<span class="text-danger">{{$message}}</span>
+		@enderror
+		</div>
+    </div>
+	<div class="form-group">
+		<img src="" alt="">
+	</div>
+
+	<input type="hidden" name="old_img" value="{{$heros->img}}">
+	<div class="form-group">
+        <h5>Image<span class="text-danger">*</span></h5>
+        <div class="controls">
+        <input type="file" name="img"  class="form-control"  value="{{$heros->img}}"  > 
+	@error('img')
 		<span class="text-danger">{{$message}}</span>
 		@enderror
 	</div>
