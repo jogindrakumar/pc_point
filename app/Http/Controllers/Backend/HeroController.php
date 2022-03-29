@@ -27,14 +27,6 @@ public function HeroView(){
         ]);
 
 
-        // $image = $request->file('img');
-        // $name_gen = hexdec(uniqid());
-        // $img_ext = strtolower($image->getClientOriginalExtension());
-        // $img_name = $name_gen.'.'.$img_ext;
-        // $upload_location = 'upload/Hero/';
-        // $last_image = $upload_location.$img_name;
-        // $image->move($upload_location,$img_name);
-
 
 
         $image = $request->file('img');
