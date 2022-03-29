@@ -6,10 +6,12 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\HeroController;
+use App\Http\Controllers\Backend\TestimoniController;
 use App\Models\Admin;
 use App\Models\About;
 use App\Models\Product;
 use App\Models\Hero;
+use App\Models\Testimoni;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,18 @@ Route::post('/store',[HeroController::class,'HeroStore'])->name('hero.store');
 Route::get('/edit/{id}',[HeroController::class,'HeroEdit'])->name('hero.edit');
 Route::post('/update/{id}',[HeroController::class,'HeroUpdate'])->name('hero.update');
 Route::get('/delete/{id}',[HeroController::class,'HeroDelete'])->name('hero.delete');
+
+
+ });
+
+  // Testimoninal Route
+ Route::prefix('testimoni')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[TestimoniController::class,'TestimoniView'])->name('all.testimoni');
+Route::get('/add',[TestimoniController::class,'TestimoniAdd'])->name('add.testimoni');
+Route::post('/store',[TestimoniController::class,'TestimoniStore'])->name('testimoni.store');
+Route::get('/edit/{id}',[TestimoniController::class,'TestimoniEdit'])->name('testimoni.edit');
+Route::post('/update/{id}',[TestimoniController::class,'TestimoniUpdate'])->name('testimoni.update');
+Route::get('/delete/{id}',[TestimoniController::class,'TestimoniDelete'])->name('testimoni.delete');
 
 
  });
