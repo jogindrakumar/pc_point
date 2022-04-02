@@ -28,17 +28,6 @@ class AboutController extends Controller
         'img'             => 'required',
         ]);
 
-
-        // $image = $request->file('img');
-        // $name_gen = hexdec(uniqid());
-        // $img_ext = strtolower($image->getClientOriginalExtension());
-        // $img_name = $name_gen.'.'.$img_ext;
-        // $upload_location = 'upload/about/';
-        // $last_image = $upload_location.$img_name;
-        // $image->move($upload_location,$img_name);
-
-
-
         $image = $request->file('img');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         Image::make($image)->save('upload/about/'.$name_gen);
@@ -58,7 +47,6 @@ class AboutController extends Controller
 
     public function AboutEdit($id){
 
-        // $Abouts = About::find($id);
         $abouts = About::findOrFail($id);
         return view('backend.about.about_edit',compact('abouts'));
 
@@ -72,13 +60,6 @@ class AboutController extends Controller
         if($request->file('img')){
 
             unlink($old_image);
-                // $image = $request->file('img');
-                // $name_gen = hexdec(uniqid());
-                // $img_ext = strtolower($image->getClientOriginalExtension());
-                // $img_name = $name_gen.'.'.$img_ext;
-                // $upload_location = 'upload/about/';
-                // $last_image = $upload_location.$img_name;
-                // $image->move($upload_location,$img_name);
                 $image = $request->file('img');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 Image::make($image)->save('upload/about/'.$name_gen);

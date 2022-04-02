@@ -48,8 +48,6 @@ public function HeroView(){
     }
 
     public function HeroEdit($id){
-
-        // $Heros = Hero::find($id);
         $heros = Hero::findOrFail($id);
         return view('backend.hero.hero_edit',compact('heros'));
 
